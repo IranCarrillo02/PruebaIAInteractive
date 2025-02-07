@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import CoreTransferable
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -15,8 +16,18 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newGame = VideoGameEntity(context: viewContext)
+            newGame.title = "Juego de prueba"
+            newGame.developer = "Desarrollador X"
+            newGame.freetogame_profile_url = "https://example.com"
+            newGame.game_url = "https://example.com"
+            newGame.genre = "MMORPG"
+            newGame.id = Int32.random(in: 1...1000)
+            newGame.platform = "PC"
+            newGame.publisher = "Publicador X"
+            newGame.release_date = "2024-06-22"
+            newGame.short_description = "Descripción de prueba"
+            newGame.thumbnail = "https://example.com/image.jpg"
         }
         do {
             try viewContext.save()

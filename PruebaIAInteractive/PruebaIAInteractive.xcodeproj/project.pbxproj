@@ -29,20 +29,42 @@
 		AC78330C2D55E1C1003C0631 /* PruebaIAInteractiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PruebaIAInteractiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AC7833402D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractive" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Testing/PruebaIAInteractiveTests/PruebaIAInteractiveTests.swift,
+				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITests.swift,
+				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITestsLaunchTests.swift,
+			);
+			target = AC7832EC2D55E1C0003C0631 /* PruebaIAInteractive */;
+		};
+		AC7833412D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractiveTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Testing/PruebaIAInteractiveTests/PruebaIAInteractiveTests.swift,
+			);
+			target = AC7833012D55E1C1003C0631 /* PruebaIAInteractiveTests */;
+		};
+		AC7833422D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractiveUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITests.swift,
+				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITestsLaunchTests.swift,
+			);
+			target = AC78330B2D55E1C1003C0631 /* PruebaIAInteractiveUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		AC7832EF2D55E1C0003C0631 /* PruebaIAInteractive */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AC7833402D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractive" target */,
+				AC7833412D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractiveTests" target */,
+				AC7833422D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractiveUITests" target */,
+			);
 			path = PruebaIAInteractive;
-			sourceTree = "<group>";
-		};
-		AC7833052D55E1C1003C0631 /* PruebaIAInteractiveTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PruebaIAInteractiveTests;
-			sourceTree = "<group>";
-		};
-		AC78330F2D55E1C1003C0631 /* PruebaIAInteractiveUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = PruebaIAInteractiveUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -76,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				AC7832EF2D55E1C0003C0631 /* PruebaIAInteractive */,
-				AC7833052D55E1C1003C0631 /* PruebaIAInteractiveTests */,
-				AC78330F2D55E1C1003C0631 /* PruebaIAInteractiveUITests */,
 				AC7832EE2D55E1C0003C0631 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +150,6 @@
 			dependencies = (
 				AC7833042D55E1C1003C0631 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				AC7833052D55E1C1003C0631 /* PruebaIAInteractiveTests */,
-			);
 			name = PruebaIAInteractiveTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +169,6 @@
 			);
 			dependencies = (
 				AC78330E2D55E1C1003C0631 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				AC78330F2D55E1C1003C0631 /* PruebaIAInteractiveUITests */,
 			);
 			name = PruebaIAInteractiveUITests;
 			packageProductDependencies = (
