@@ -8,10 +8,12 @@
 import Combine
 import Foundation
 import CoreData
+import SwiftUI
 
 class VideoGameViewModel: ObservableObject {
     @Published var games: [VideoGameModel] = []
     @Published var errorMessage: String? = nil
+    @Published var isLoading: Bool = false
     private var cancellables = Set<AnyCancellable>()
     private let repository: VideoGameRepositoryProtocol
     private let context: NSManagedObjectContext
@@ -40,6 +42,20 @@ class VideoGameViewModel: ObservableObject {
     }
     
     func loadGames() {
-        games = repository.loadGames(context: context)
+        DispatchQueue.main.async {
+            self.games = self.repository.loadGames(context: self.context)
+        }
+    }
+    
+    func filteredGames(searchText: String, genre: String) -> [VideoGameModel] {
+        games.filter { game in
+            (searchText.isEmpty || game.title.localizedCaseInsensitiveContains(searchText)) &&
+            (genre == "All" || game.genre == genre)
+        }
+    }
+    
+    func uniqueGenres() -> [String] {
+        let genres = Set(games.map { $0.genre })
+        return ["All"] + genres.sorted()
     }
 }
