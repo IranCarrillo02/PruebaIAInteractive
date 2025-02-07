@@ -7,33 +7,39 @@
 
 import Combine
 import Foundation
+import CoreData
 
 class VideoGameViewModel: ObservableObject {
     @Published var games: [VideoGameModel] = []
-    @Published var isLoading = false
-    @Published var errorMessage: String?
-
-    private let videoGameRepository: VideoGameRepositoryProtocol
-    private var cancellables: Set<AnyCancellable> = []
-
-    init(videoGameRepository: VideoGameRepositoryProtocol = VideoGameRepository()) {
-        self.videoGameRepository = videoGameRepository
+    @Published var errorMessage: String? = nil
+    private var cancellables = Set<AnyCancellable>()
+    private let repository: VideoGameRepositoryProtocol
+    private let context: NSManagedObjectContext
+    
+    init(repository: VideoGameRepositoryProtocol = VideoGameRepository(), context: NSManagedObjectContext) {
+        self.repository = repository
+        self.context = context
+        loadGames()
+        fetchGames()
     }
-
+    
     func fetchGames() {
-        isLoading = true
-        videoGameRepository.fetchGames()
+        repository.fetchGames()
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
                     break
                 case .failure(let error):
-                    self.errorMessage = error.localizedDescription
+                    self.errorMessage = "Error al cargar los juegos: \(error.localizedDescription)"
                 }
-                self.isLoading = false
-            }, receiveValue: { games in
-                self.games = games
+            }, receiveValue: { [weak self] games in
+                self?.games = games
+                self?.repository.saveGames(games, context: self!.context)
             })
             .store(in: &cancellables)
+    }
+    
+    func loadGames() {
+        games = repository.loadGames(context: context)
     }
 }

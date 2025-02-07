@@ -12,25 +12,19 @@ struct VideoGameModel: Identifiable, Codable {
     let title: String
     let thumbnail: String
     let shortDescription: String
-    let gameUrl: String
+    let gameURL: String
     let genre: String
     let platform: String
     let publisher: String
     let developer: String
     let releaseDate: String
-    let freetogameProfileUrl: String
+    let profileURL: String
     
     enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case thumbnail
-        case shortDescription = "short_description"
-        case gameUrl = "game_url"
-        case genre
-        case platform
-        case publisher
-        case developer
+        case id, title, genre, platform, publisher, developer
+        case thumbnail, shortDescription = "short_description"
+        case gameURL = "game_url"
         case releaseDate = "release_date"
-        case freetogameProfileUrl = "freetogame_profile_url"
+        case profileURL = "freetogame_profile_url"
     }
 }

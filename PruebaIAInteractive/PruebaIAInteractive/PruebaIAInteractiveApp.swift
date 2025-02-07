@@ -13,6 +13,8 @@ struct PruebaIAInteractiveApp: App {
 
     var body: some Scene {
         WindowGroup {
+            VideoGameCatalogView(context: persistenceController.container.viewContext)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }
