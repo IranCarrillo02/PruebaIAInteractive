@@ -33,15 +33,19 @@
 		AC7833402D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractive" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Testing/PruebaIAInteractiveTests/MockVideoGameRepositoryTests.swift,
 				Testing/PruebaIAInteractiveTests/PruebaIAInteractiveTests.swift,
 				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITests.swift,
 				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITestsLaunchTests.swift,
+				Testing/PruebaIAInteractiveUITests/VideoGameCatalogViewTests.swift,
+				Testing/PruebaIAInteractiveUITests/VideoGameDetailViewTests.swift,
 			);
 			target = AC7832EC2D55E1C0003C0631 /* PruebaIAInteractive */;
 		};
 		AC7833412D55EFCB003C0631 /* Exceptions for "PruebaIAInteractive" folder in "PruebaIAInteractiveTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Testing/PruebaIAInteractiveTests/MockVideoGameRepositoryTests.swift,
 				Testing/PruebaIAInteractiveTests/PruebaIAInteractiveTests.swift,
 			);
 			target = AC7833012D55E1C1003C0631 /* PruebaIAInteractiveTests */;
@@ -51,6 +55,8 @@
 			membershipExceptions = (
 				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITests.swift,
 				Testing/PruebaIAInteractiveUITests/PruebaIAInteractiveUITestsLaunchTests.swift,
+				Testing/PruebaIAInteractiveUITests/VideoGameCatalogViewTests.swift,
+				Testing/PruebaIAInteractiveUITests/VideoGameDetailViewTests.swift,
 			);
 			target = AC78330B2D55E1C1003C0631 /* PruebaIAInteractiveUITests */;
 		};
