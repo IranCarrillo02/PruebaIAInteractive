@@ -20,12 +20,12 @@ struct VideoGameCatalogView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    ExpandableNavigationBar(searchText: $searchText, activeGenre: $activeGenre, genres: viewModel.uniqueGenres(), games: viewModel.games)
-                    
-                    List(viewModel.filteredGames(searchText: searchText, genre: activeGenre)) { game in
-                        NavigationLink(destination: VideoGameDetailView(game: game)) {
+            VStack {
+                ExpandableNavigationBar(searchText: $searchText, activeGenre: $activeGenre, genres: viewModel.uniqueGenres(), games: viewModel.games)
+                
+                List {
+                    ForEach(viewModel.filteredGames(searchText: searchText, genre: activeGenre)) { game in
+                        NavigationLink(destination: VideoGameDetailView(viewModel: viewModel, game: $viewModel.games[viewModel.games.firstIndex(where: { $0.id == game.id })!])) {
                             HStack(spacing: 12) {
                                 CachedAsyncImage(url: URL(string: game.thumbnail))
                                     .frame(width: 80, height: 80)
@@ -42,22 +42,12 @@ struct VideoGameCatalogView: View {
                             }
                             .padding(.vertical, 8)
                         }
-                        .listRowSeparator(.hidden)
                     }
-                    .onAppear {
-                        viewModel.fetchGames()
-                    }
+                    .onDelete(perform: viewModel.deleteGame)
+                    .listRowSeparator(.hidden)
                 }
-                
-                if viewModel.isLoading {
-                    Color.black.opacity(0.4)
-                        .edgesIgnoringSafeArea(.all)
-                    
-                    ProgressView("Loading videogames...")
-                        .padding(20)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .shadow(radius: 10)
+                .onAppear {
+                    viewModel.fetchGames()
                 }
             }
         }

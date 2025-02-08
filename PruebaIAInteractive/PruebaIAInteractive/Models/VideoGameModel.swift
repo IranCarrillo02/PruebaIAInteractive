@@ -8,17 +8,17 @@
 import Foundation
 
 struct VideoGameModel: Identifiable, Codable {
-    let id: Int
-    let title: String
-    let thumbnail: String
-    let shortDescription: String
-    let gameURL: String
-    let genre: String
-    let platform: String
-    let publisher: String
-    let developer: String
-    let releaseDate: String
-    let profileURL: String
+    var id: Int
+    var title: String
+    var thumbnail: String
+    var shortDescription: String
+    var gameURL: String
+    var genre: String
+    var platform: String
+    var publisher: String
+    var developer: String
+    var releaseDate: String
+    var profileURL: String
     
     enum CodingKeys: String, CodingKey {
         case id, title, genre, platform, publisher, developer
